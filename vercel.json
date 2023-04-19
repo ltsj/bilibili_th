@@ -1,20 +1,15 @@
 {
-"cleanUrls": true,
-"regions": [
-"sin1"
-],
-"rewrites": [
-{
-"source": "/intl/gateway/web/:path*",
-"destination": "/api/:path*"
-}
-],
-"proxy": {
-"/api/*": {
-"target": "https://api.bilibili.tv",
-"headers": {
-"host": "api.bilibili.tv"
-}
-}
-}
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/proxy.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/proxy",
+      "dest": "api/proxy.js"
+    }
+  ]
 }
