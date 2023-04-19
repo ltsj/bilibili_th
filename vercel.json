@@ -1,0 +1,15 @@
+{
+  "cleanUrls": true,
+  "regions": [
+    "sin1"
+  ],
+  "rewrites": [
+    {
+      "source": "/intl/gateway/web/:path*",
+      "destination": "https://api.bilibili.tv/:path*",
+      "headers": {
+        "host": "api.bilibili.tv"
+      }
+    }
+  ]
+}
