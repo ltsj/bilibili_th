@@ -1,12 +1,20 @@
 {
-  "cleanUrls": true,
-  "regions": [
-    "sin1"
-  ],
-  "rewrites": [
-    {
-      "source": "/intl/gateway/web/:path*",
-      "destination": "https://api.bilibili.tv/:path*"
-    }
-  ]
+"cleanUrls": true,
+"regions": [
+"sin1"
+],
+"rewrites": [
+{
+"source": "/intl/gateway/web/:path*",
+"destination": "/api/:path*"
+}
+],
+"proxy": {
+"/api/*": {
+"target": "https://api.bilibili.tv",
+"headers": {
+"host": "api.bilibili.tv"
+}
+}
+}
 }
